@@ -1,41 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, View, StatusBar } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import { Searchbar } from "react-native-paper";
+
+import RestaurantsScreen from "./src/features/restaurants/screens/restaurants.screen";
 
 export default function App() {
-  const [searchText, setSerachText] = useState("");
   return (
     <>
-      <SafeAreaView style={styles.root}>
-        <View style={styles.searchContainer}>
-          <Searchbar
-            placeholder="Search"
-            value={searchText}
-            onChange={setSerachText}
-          />
-        </View>
-        <View style={styles.listContainer} />
-      </SafeAreaView>
+      <RestaurantsScreen />
       <ExpoStatusBar style="auto" />
     </>
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: StatusBar.currentHeight,
-  },
-  searchContainer: {
-    width: "100%",
-    padding: 16,
-  },
-  listContainer: {
-    backgroundColor: "blue",
-    flexGrow: 1,
-    width: "100%",
-  },
-});
+const styles = StyleSheet.create({});

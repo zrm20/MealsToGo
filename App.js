@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet } from "react-native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 
 import RestaurantsScreen from "./src/features/restaurants/screens/restaurants.screen";
@@ -11,6 +10,4 @@ export default function App() {
       <ExpoStatusBar style="auto" />
     </>
   );
-}
-
-const styles = StyleSheet.create({});
+};

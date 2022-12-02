@@ -1,13 +1,19 @@
-import React from "react";
-import { StyleSheet, Text, SafeAreaView, View, StatusBar } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, SafeAreaView, View, StatusBar } from "react-native";
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import { Searchbar } from "react-native-paper";
 
 export default function App() {
+  const [searchText, setSerachText] = useState("");
   return (
     <>
       <SafeAreaView style={styles.root}>
         <View style={styles.searchContainer}>
-          <Text>Search</Text>
+          <Searchbar
+            placeholder="Search"
+            value={searchText}
+            onChange={setSerachText}
+          />
         </View>
         <View style={styles.listContainer} />
       </SafeAreaView>
@@ -25,7 +31,6 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     width: "100%",
-    backgroundColor: "green",
     padding: 16,
   },
   listContainer: {

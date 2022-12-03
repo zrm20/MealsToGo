@@ -4,9 +4,11 @@ import { ThemeProvider } from "styled-components/native";
 import { useFonts } from "expo-font";
 import { Oswald_400Regular } from "@expo-google-fonts/oswald";
 import { Lato_400Regular } from "@expo-google-fonts/lato";
+import { NavigationContainer } from "@react-navigation/native";
 
 import theme from './src/infrascructure/theme/index';
 import RestaurantsScreen from "./src/features/restaurants/screens/restaurants.screen";
+import TabNavigator from "./src/navigation/TabNavigator";
 
 export default function App() {
 
@@ -19,7 +21,9 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsScreen />
+        <NavigationContainer>
+          <TabNavigator />
+        </NavigationContainer>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>

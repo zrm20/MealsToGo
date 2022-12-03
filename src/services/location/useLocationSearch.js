@@ -9,7 +9,7 @@ export default function useLocationSearch(defaultLocation = "37.7749295,-122.419
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLocation(defaultLocation);
+    setLocation("37.7749295,-122.4194155");
   }, []);
 
   const { setLocation } = useRestaurants();

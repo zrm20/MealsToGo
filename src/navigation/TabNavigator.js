@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import RestaurantsScreen from "../components/screens/RestaurantsScreen";
+import RestaurantsStack from "./RestaurantsStack";
 
 const DUMMY_MAP = () => <View><Text>MAPS</Text></View>
 const DUMMY_SETTINGS = () => <View><Text>SETTINGS</Text></View>
@@ -10,7 +10,7 @@ const DUMMY_SETTINGS = () => <View><Text>SETTINGS</Text></View>
 const Tabs = createBottomTabNavigator();
 
 const TAB_ICON = {
-  Restaurants: "restaurant-outline",
+  RestaurantsStack: "restaurant-outline",
   Map: "map-outline",
   Settings: "settings-outline"
 };
@@ -25,7 +25,7 @@ export default function TabNavigator() {
     <Tabs.Navigator
       screenOptions={screenOptions}
     >
-      <Tabs.Screen name="Restaurants" component={RestaurantsScreen} />
+      <Tabs.Screen name="RestaurantsStack" component={RestaurantsStack} />
       <Tabs.Screen name="Map" component={DUMMY_MAP} />
       <Tabs.Screen name="Settings" component={DUMMY_SETTINGS} />
     </Tabs.Navigator>

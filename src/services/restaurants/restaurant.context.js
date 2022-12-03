@@ -45,11 +45,27 @@ export function RestaurantsProvider({ children }) {
 };
 
 export function useRestaurants() {
-  const restaurants = useContext(RestaurantsContext);
+  const restaurantsContext = useContext(RestaurantsContext);
+
+  if (!restaurantsContext) {
+    throw new Error('useRestaurants must be used within a RestaurantsProvider');
+  };
+
+  return restaurantsContext;
+};
+
+export function useRestaurantById(id) {
+  const { restaurants } = useContext(RestaurantsContext);
 
   if (!restaurants) {
     throw new Error('useRestaurants must be used within a RestaurantsProvider');
   };
 
-  return restaurants;
+  const restaurant = restaurants.filter(el => el.placeId === id);
+
+  if (!restaurant || !restaurant.length) {
+    return null
+  };
+
+  return restaurant[0];
 };

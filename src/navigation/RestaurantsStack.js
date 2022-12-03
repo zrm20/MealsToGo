@@ -1,13 +1,8 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import RestaurantsScreen from '../components/screens/RestaurantsScreen';
 
-const RestaurantDetails = ({ navigation }) => (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-    <Text>DETAILS</Text>
-    <Button title="Back" onPress={() => navigation.navigate("Restaurants")} />
-  </View>)
+import RestaurantsScreen from '../components/screens/RestaurantsScreen';
+import RestaurantDetailsScreen from "../components/screens/RestaurantDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +19,7 @@ export default function RestaurantsStack() {
           presentation: "modal"
         }}
       >
-        <Stack.Screen name="RestaurantDetails" component={RestaurantDetails} />
+        <Stack.Screen name="RestaurantDetails" component={RestaurantDetailsScreen} />
       </Stack.Group>
     </Stack.Navigator>
   )

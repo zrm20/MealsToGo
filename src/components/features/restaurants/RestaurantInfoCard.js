@@ -24,6 +24,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
     address,
     isOpenNow,
     rating,
+    placeId,
     photos = [],
     isClosedTemporarily,
   } = restaurant;

@@ -12,8 +12,8 @@ import {
   ClosedTemporarily,
   IconRow,
   Address
-} from "./restaurant-info-card.styles";
-import Text from "../../../components/typography/text.component";
+} from "./RestaurantInfoCard.styles";
+import Text from "../../../components/UI/Text";
 import star from '../../../../assets/star';
 import openIcon from '../../../../assets/open';
 

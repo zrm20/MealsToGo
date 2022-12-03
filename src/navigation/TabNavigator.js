@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View, Text } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import RestaurantsScreen from "../features/restaurants/screens/restaurants.screen";
+import RestaurantsScreen from "../components/screens/RestaurantsScreen";
 
 const DUMMY_MAP = () => <View><Text>MAPS</Text></View>
 const DUMMY_SETTINGS = () => <View><Text>SETTINGS</Text></View>

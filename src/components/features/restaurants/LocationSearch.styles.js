@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import LoadingSpinner from "../../../components/LoadingSpinner";
-import Text from "../../../components/typography/text.component";
+import LoadingSpinner from "../../../components/UI/LoadingSpinner";
+import Text from "../../../components/UI/Text";
 
 export const SearchContainer = styled.View`
   padding: ${props => props.theme.space[3]};

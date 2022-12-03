@@ -6,8 +6,7 @@ import { Oswald_400Regular } from "@expo-google-fonts/oswald";
 import { Lato_400Regular } from "@expo-google-fonts/lato";
 import { NavigationContainer } from "@react-navigation/native";
 
-import theme from './src/infrascructure/theme/index';
-import RestaurantsScreen from "./src/features/restaurants/screens/restaurants.screen";
+import theme from './src/theme';
 import TabNavigator from "./src/navigation/TabNavigator";
 import { RestaurantsProvider } from "./src/services/restaurants/restaurant.context";
 

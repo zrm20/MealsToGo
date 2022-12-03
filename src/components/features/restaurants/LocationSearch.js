@@ -1,7 +1,7 @@
 import React from "react";
 import { Searchbar } from "react-native-paper";
 
-import { SearchContainer, FetchingSpinner, ErrorMessage } from './Search.styles';
+import { SearchContainer, FetchingSpinner, ErrorMessage } from './LocationSearch.styles';
 import useLocationSearch from "../../../services/location/useLocationSearch";
 
 export default function Search(props) {

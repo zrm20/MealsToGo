@@ -1,11 +1,11 @@
 import React from "react";
 
-import LoadingSpinner from "../../../components/LoadingSpinner";
-import Text from "../../../components/typography/text.component";
-import { useRestaurants } from "../../../services/restaurants/restaurant.context";
-import RestaurantInfoCard from "../components/restaurant-info-card.component";
-import Search from "../components/Search";
-import { SafeArea, RestaurantList, LoadingView } from './restaurants.styles';
+import LoadingSpinner from "../UI/LoadingSpinner";
+import Text from "../UI/Text";
+import { useRestaurants } from "../../services/restaurants/restaurant.context";
+import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
+import Search from "../features/restaurants/LocationSearch";
+import { SafeArea, RestaurantList, LoadingView } from './RestaurantsScreen.styles';
 
 function renderRestaurantCard({ item: restaurant }) {
   return <RestaurantInfoCard restaurant={restaurant} />

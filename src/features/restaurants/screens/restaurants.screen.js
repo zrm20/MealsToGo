@@ -7,8 +7,8 @@ import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import Search from "../components/Search";
 import { SafeArea, RestaurantList, LoadingView } from './restaurants.styles';
 
-function renderRestaurantCard(restaurant) {
-  return <RestaurantInfoCard restaurant={restaurant.item} />
+function renderRestaurantCard({ item: restaurant }) {
+  return <RestaurantInfoCard restaurant={restaurant} />
 };
 
 export default function RestaurantsScreen() {

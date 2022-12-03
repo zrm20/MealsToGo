@@ -28,8 +28,10 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
     isClosedTemporarily,
   } = restaurant;
 
-
-  const ratingArray = Array.from(new Array(Math.ceil(rating)));
+  let ratingArray;
+  if (rating) {
+    ratingArray = Array.from(new Array(Math.ceil(rating)));
+  }
 
   return (
     <RestaurantCard elevation={5}>
@@ -37,13 +39,16 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
       <Info>
         <Text variant="label">{name}</Text>
         <IconRow>
-          <RatingContainer>
-            {
-              ratingArray.map((el, i) => (
-                <SvgXml xml={star} width={20} height={20} key={i} />
-              ))
-            }
-          </RatingContainer>
+          {
+            rating &&
+            <RatingContainer>
+              {
+                ratingArray.map((el, i) => (
+                  <SvgXml xml={star} width={20} height={20} key={i} />
+                ))
+              }
+            </RatingContainer>
+          }
           <StatusContainer>
             {
               !isClosedTemporarily && isOpenNow &&

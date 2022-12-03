@@ -6,14 +6,18 @@ export function restaurantRequest(location = "37.7749295,-122.4194155") {
     const mock = mocks[location];
 
     if (!mock) {
-      setTimeout(() => reject('Location not found'), 1000);
+      return setTimeout(() => reject('Location not found'), 1000);
     };
 
-    setTimeout(() => resolve(mock), 1000);
+    return setTimeout(() => resolve(mock), 1000);
   });
 };
 
 export function transformRestaurantResult(result) {
+  if (!result || !result.results) {
+    return []
+  };
+
   // api should return a result with a results property that should be array
   const { results = [] } = result;
 

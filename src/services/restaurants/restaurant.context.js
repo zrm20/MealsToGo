@@ -5,17 +5,18 @@ import { restaurantRequest, transformRestaurantResult } from "./restaurant.servi
 const RestaurantsContext = createContext();
 
 export function RestaurantsProvider({ children }) {
+  const [location, setLocation] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchRestaurants = useCallback(async () => {
+  const fetchRestaurants = useCallback(async (location) => {
     setIsLoading(true);
     setError(null);
 
     let response;
     try {
-      response = await restaurantRequest();
+      response = await restaurantRequest(location);
     } catch (err) {
       setError(err);
       setIsLoading(false);
@@ -29,12 +30,12 @@ export function RestaurantsProvider({ children }) {
   }, [setError, setIsLoading, setRestaurants]);
 
   useEffect(() => {
-    fetchRestaurants();
-  }, [fetchRestaurants]);
+    fetchRestaurants(location);
+  }, [fetchRestaurants, location]);
 
   return (
     <RestaurantsContext.Provider
-      value={{ restaurants, error, isLoading }}
+      value={{ restaurants, error, isLoading, setLocation }}
     >
       {children}
     </RestaurantsContext.Provider>

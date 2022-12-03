@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import theme from './src/infrascructure/theme/index';
 import RestaurantsScreen from "./src/features/restaurants/screens/restaurants.screen";
 import TabNavigator from "./src/navigation/TabNavigator";
+import { RestaurantsProvider } from "./src/services/restaurants/restaurant.context";
 
 export default function App() {
 
@@ -22,7 +23,9 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <TabNavigator />
+          <RestaurantsProvider>
+            <TabNavigator />
+          </RestaurantsProvider>
         </NavigationContainer>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />

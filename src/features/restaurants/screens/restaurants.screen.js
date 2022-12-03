@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { FlatList } from "react-native";
 import { Searchbar } from "react-native-paper";
+import { useRestaurants } from "../../../services/restaurants/restaurant.context";
 
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import { SafeArea, SearchContainer, RestaurantList } from './restaurants.styles';
 
 function renderRestaurantCard(restaurant) {
-  return <RestaurantInfoCard />
+  return <RestaurantInfoCard restaurant={restaurant.item} />
 };
 
 export default function RestaurantsScreen() {
   const [searchText, setSerachText] = useState("");
+  const { restaurants, isLoading, error } = useRestaurants();
 
   return (
     <SafeArea>
@@ -22,8 +23,9 @@ export default function RestaurantsScreen() {
         />
       </SearchContainer>
       <RestaurantList
-        data={[1, 2, 3]}
+        data={restaurants}
         renderItem={renderRestaurantCard}
+        keyExtractor={restaurant => restaurant.placeId}
       />
     </SafeArea>
   );

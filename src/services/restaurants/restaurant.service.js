@@ -6,7 +6,7 @@ export function restaurantRequest(location = "37.7749295,-122.4194155") {
     const mock = mocks[location];
 
     if (!mock) {
-      return setTimeout(() => reject('Location not found'), 1000);
+      return setTimeout(() => reject(`Location [${location}] not found`), 1000);
     };
 
     return setTimeout(() => resolve(mock), 1000);

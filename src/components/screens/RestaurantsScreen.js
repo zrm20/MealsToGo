@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-native-paper";
 
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Text from "../UI/Text";
@@ -11,7 +12,7 @@ function renderRestaurantCard({ item: restaurant }) {
   return <RestaurantInfoCard restaurant={restaurant} />
 };
 
-export default function RestaurantsScreen() {
+export default function RestaurantsScreen({ navigation }) {
   const { restaurants, isLoading, error } = useRestaurants();
 
   return (
@@ -27,7 +28,7 @@ export default function RestaurantsScreen() {
         error &&
         <LoadingView>
           <Text variant="error">Error!</Text>
-          <Text variant="caption">Please try again</Text>
+          <Text variant="caption">{error}</Text>
         </LoadingView>
       }
       {
@@ -38,6 +39,7 @@ export default function RestaurantsScreen() {
           keyExtractor={restaurant => restaurant.placeId}
         />
       }
+      <Button onPress={() => navigation.navigate('RestaurantDetails')}>Go</Button>
     </SafeArea>
   );
 };

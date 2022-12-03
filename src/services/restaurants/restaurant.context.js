@@ -30,7 +30,9 @@ export function RestaurantsProvider({ children }) {
   }, [setError, setIsLoading, setRestaurants]);
 
   useEffect(() => {
-    fetchRestaurants(location);
+    if (location) {
+      fetchRestaurants(location);
+    }
   }, [fetchRestaurants, location]);
 
   return (

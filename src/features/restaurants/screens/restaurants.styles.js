@@ -9,10 +9,6 @@ export const SafeArea = styled.SafeAreaView`
   margin-top: ${statusBarMargin}px
 `;
 
-export const SearchContainer = styled.View`
-  padding: ${props => props.theme.space[3]};
-`;
-
 export const RestaurantList = styled(FlatList).attrs(props => ({
   contentContainerStyle: { padding: parseInt(props.theme.space[3]) }
 }))``;

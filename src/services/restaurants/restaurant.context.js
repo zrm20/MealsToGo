@@ -9,7 +9,7 @@ export function RestaurantsProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchRestaurant = useCallback(async () => {
+  const fetchRestaurants = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -29,8 +29,8 @@ export function RestaurantsProvider({ children }) {
   }, [setError, setIsLoading, setRestaurants]);
 
   useEffect(() => {
-    fetchRestaurant();
-  }, [fetchRestaurant]);
+    fetchRestaurants();
+  }, [fetchRestaurants]);
 
   return (
     <RestaurantsContext.Provider

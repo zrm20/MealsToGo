@@ -29,6 +29,7 @@ export function transformRestaurantResult(result) {
     return (
       {
         ...restaurant,
+        address: restaurant.vicinity,
         // add our own isOpenNow propery at root of object
         isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
         // add our own isClosedTemporarily based on business status

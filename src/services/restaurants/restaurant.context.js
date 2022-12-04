@@ -17,7 +17,7 @@ export function RestaurantsProvider({ children }) {
 
     let response;
     try {
-      response = await restaurantRequest(location);
+      response = await restaurantRequest(`${location.lat},${location.lng}`);
     } catch (err) {
       setError(err);
       setIsLoading(false);

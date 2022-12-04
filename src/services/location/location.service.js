@@ -27,7 +27,10 @@ export function transformLocationResponse(response) {
   };
 
   const topResult = results[0];
-  const { location } = topResult.geometry;
 
-  return `${location.lat},${location.lng}`;
+  const location = topResult.geometry?.location;
+
+  location.viewport = topResult.geometry.viewport;
+
+  return location;
 };

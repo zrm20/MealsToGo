@@ -1,12 +1,13 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Text from "../UI/Text";
+import ScreenSafeArea from "../UI/ScreenSafeArea";
 import { useRestaurants } from "../../services/restaurants/restaurant.context";
 import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
 import Search from "../features/restaurants/LocationSearch";
-import { SafeArea, RestaurantList, LoadingView } from './RestaurantsScreen.styles';
-import { TouchableOpacity } from "react-native";
+import { RestaurantList, LoadingView } from './RestaurantsScreen.styles';
 
 
 export default function RestaurantsScreen({ navigation }) {
@@ -22,7 +23,7 @@ export default function RestaurantsScreen({ navigation }) {
 
 
   return (
-    <SafeArea>
+    <ScreenSafeArea>
       <Search />
       {
         isLoading &&
@@ -45,6 +46,6 @@ export default function RestaurantsScreen({ navigation }) {
           keyExtractor={restaurant => restaurant.placeId}
         />
       }
-    </SafeArea>
+    </ScreenSafeArea>
   );
 };

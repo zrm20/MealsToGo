@@ -1,13 +1,5 @@
 import styled from "styled-components/native";
-import { StatusBar } from "react-native";
 import { FlatList } from "react-native";
-
-const statusBarMargin = StatusBar.currentHeight ? StatusBar.currentHeight.toString() : "0";
-
-export const SafeArea = styled.SafeAreaView`
-  flex: 1;
-  margin-top: ${statusBarMargin}px
-`;
 
 export const RestaurantList = styled(FlatList).attrs(props => ({
   contentContainerStyle: { padding: parseInt(props.theme.space[3]) }

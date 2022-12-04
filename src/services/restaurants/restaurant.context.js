@@ -1,14 +1,15 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { useLocation } from "../location/location.context";
 
 import { restaurantRequest, transformRestaurantResult } from "./restaurant.service";
 
 const RestaurantsContext = createContext();
 
 export function RestaurantsProvider({ children }) {
-  const [location, setLocation] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const { location } = useLocation();
 
   const fetchRestaurants = useCallback(async (location) => {
     setIsLoading(true);
@@ -37,7 +38,7 @@ export function RestaurantsProvider({ children }) {
 
   return (
     <RestaurantsContext.Provider
-      value={{ restaurants, error, isLoading, setLocation }}
+      value={{ restaurants, error, isLoading }}
     >
       {children}
     </RestaurantsContext.Provider>

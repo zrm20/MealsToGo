@@ -6,7 +6,7 @@ import Text from "../UI/Text";
 import ScreenSafeArea from "../UI/ScreenSafeArea";
 import { useRestaurants } from "../../services/restaurants/restaurant.context";
 import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
-import Search from "../features/restaurants/LocationSearch";
+import LocationSearch from "../features/LocationSearch/LocationSearch";
 import { RestaurantList, LoadingView } from './RestaurantsScreen.styles';
 
 
@@ -24,7 +24,7 @@ export default function RestaurantsScreen({ navigation }) {
 
   return (
     <ScreenSafeArea>
-      <Search />
+      <LocationSearch />
       {
         isLoading &&
         <LoadingView>

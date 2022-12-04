@@ -1,19 +1,20 @@
 import React from "react";
 import { Searchbar } from "react-native-paper";
 
-import { SearchContainer, FetchingSpinner, ErrorMessage } from './LocationSearch.styles';
+import { SearchContainer, FetchingSpinner, ErrorMessage } from '../restaurants/LocationSearch.styles';
 import useLocationSearch from "../../../services/location/useLocationSearch";
 
-export default function Search(props) {
+export default function LocationSearch({ containerProps = {}, ...props }) {
   const { searchText, handleChange, handleSubmit, isLoading, error } = useLocationSearch();
 
   return (
-    <SearchContainer >
+    <SearchContainer {...containerProps}>
       <Searchbar
         placeholder="Search for a location"
         value={searchText}
         onChangeText={handleChange}
         onEndEditing={handleSubmit}
+        {...props}
       />
       {
         isLoading &&

@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { Card } from "react-native-paper";
 import Text from '../../../components/UI/Text';
 import { SvgXml } from "react-native-svg";
+import FavoriteButton from '../favorites/FavoriteButton';
 
 export const RestaurantCard = styled(Card)`
   background-color: ${props => props.theme.colors.bg.primary};
@@ -51,4 +52,12 @@ export const TypeIcon = styled.Image`
   height: 20px;
   width: 20px;
   margin-right: ${props => props.theme.space[3]};
+`;
+
+export const RestaurantFavoriteButton = styled(FavoriteButton)`
+  position: absolute;
+  background-color: ${props => props.theme.colors.bg.secondary}
+  top: 20px;
+  left: 20px;
+  z-index: 9;
 `;

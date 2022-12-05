@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import {
@@ -11,7 +12,8 @@ import {
   TypeIcon,
   ClosedTemporarily,
   IconRow,
-  Address
+  Address,
+  RestaurantFavoriteButton,
 } from "./RestaurantInfoCard.styles";
 import Text from "../../../components/UI/Text";
 import star from '../../../../assets/star';
@@ -24,7 +26,6 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
     address,
     isOpenNow,
     rating,
-    placeId,
     photos = [],
     isClosedTemporarily,
   } = restaurant;
@@ -36,7 +37,10 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover source={{ uri: photos[0] }} key={name} />
+      <View>
+        <RestaurantFavoriteButton restaurant={restaurant} />
+        <RestaurantCardCover source={{ uri: photos[0] }} key={name} />
+      </View>
       <Info>
         <Text variant="label">{name}</Text>
         <IconRow>

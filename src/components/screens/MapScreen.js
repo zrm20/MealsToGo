@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Callout } from "react-native-maps";
 import { useLocation } from "../../services/location/location.context";
 import { useRestaurants } from "../../services/restaurants/restaurant.context";
 import LocationSearch from "../features/LocationSearch/LocationSearch";
+import MapCallout from "../features/map/MapCallout";
 
 import SafeArea from "../UI/SafeArea";
 
-export default function MapScreen(props) {
+export default function MapScreen({ navigation }) {
   const { location } = useLocation();
   const { restaurants = [] } = useRestaurants();
+
+  const { navigate } = navigation;
 
   return (
     <>
@@ -35,8 +38,11 @@ export default function MapScreen(props) {
                 latitude: restaurant.geometry?.location?.lat || null,
                 longitude: restaurant.geometry?.location?.lng || null
               }}
-              title={restaurant.name}
-            />
+            >
+              <Callout>
+                <MapCallout restaurant={restaurant} navigate={navigate} />
+              </Callout>
+            </Marker>
           ))
         }
       </MapView>

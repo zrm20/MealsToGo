@@ -13,8 +13,7 @@ import useStyles from "./RestaurantDetailsScreen.styles";
 import RestaurantMap from "../features/restaurants/RestaurantMap";
 
 export default function RestaurantDetailsScreen({ navigation, route }) {
-  const { id } = route.params;
-  const restaurant = useRestaurantById(id);
+  const { restaurant } = route.params;
   const styles = useStyles();
 
   if (!restaurant) {

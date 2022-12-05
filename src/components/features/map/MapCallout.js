@@ -13,7 +13,7 @@ export default function MapCallout({ restaurant, navigate }) {
   const styles = useStyles();
 
   function navToDetails() {
-    navigate("RestaurantDetails", { id: restaurant.placeId })
+    navigate("RestaurantDetails", { restaurant })
   };
 
   return (

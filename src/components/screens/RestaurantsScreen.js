@@ -17,7 +17,7 @@ export default function RestaurantsScreen({ navigation }) {
 
   function renderRestaurantCard({ item: restaurant }) {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetails", { id: restaurant.placeId })}>
+      <TouchableOpacity onPress={() => navigation.navigate("RestaurantDetails", { restaurant })}>
         <RestaurantInfoCard restaurant={restaurant} />
       </TouchableOpacity>
     );

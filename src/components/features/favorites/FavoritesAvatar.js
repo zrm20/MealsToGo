@@ -10,7 +10,7 @@ export default function FavoritesAvatar({ restaurant, size = 75 }) {
   const { navigate } = useNavigation();
 
   function handlePress() {
-    navigate("RestaurantDetails", { id: restaurant.placeId })
+    navigate("RestaurantDetails", { restaurant })
   };
 
   return (

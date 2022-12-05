@@ -9,6 +9,7 @@ import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
 import OpenHoursList from '../features/restaurants/OpenHoursList';
 import Text from "../UI/Text";
 import openMap from "../../utils/openMap";
+import ScreenSafeArea from "../UI/ScreenSafeArea";
 
 export default function RestaurantDetailsScreen({ navigation, route }) {
   const { id } = route.params;
@@ -16,32 +17,36 @@ export default function RestaurantDetailsScreen({ navigation, route }) {
 
   if (!restaurant) {
     return (
-      <ModalView>
-        <Text variant="error">Oh No, Something went wrong!</Text>
-        <Ionicons name='alert-circle-outline' size={50} />
-        <Button onPress={() => navigation.goBack()}>Go Back</Button>
-      </ModalView>
+      <ScreenSafeArea>
+        <ModalView>
+          <Text variant="error">Oh No, Something went wrong!</Text>
+          <Ionicons name='alert-circle-outline' size={50} />
+          <Button onPress={() => navigation.goBack()}>Go Back</Button>
+        </ModalView>
+      </ScreenSafeArea>
     )
   }
 
   return (
-    <ModalView>
-      <RestaurantInfoCard restaurant={restaurant} />
-      <View style={styles.listContainer}>
-        <OpenHoursList />
-      </View>
-      {
-        restaurant.address &&
-        <Button
-          mode="contained"
-          icon="directions"
-          onPress={() => openMap(restaurant.address, restaurant.name)}
-        >
-          Navigate
-        </Button>
-      }
-      <Button onPress={() => navigation.goBack()}>Go Back</Button>
-    </ModalView>
+    <ScreenSafeArea>
+      <ModalView>
+        <RestaurantInfoCard restaurant={restaurant} />
+        <View style={styles.listContainer}>
+          <OpenHoursList />
+        </View>
+        {
+          restaurant.address &&
+          <Button
+            mode="contained"
+            icon="directions"
+            onPress={() => openMap(restaurant.address, restaurant.name)}
+          >
+            Navigate
+          </Button>
+        }
+        <Button onPress={() => navigation.goBack()}>Go Back</Button>
+      </ModalView>
+    </ScreenSafeArea>
   );
 };
 

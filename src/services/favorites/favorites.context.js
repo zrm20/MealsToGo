@@ -1,12 +1,9 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { useRestaurantById } from "../restaurants/restaurant.context";
+import { createContext, useContext, useState } from "react";
 
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
-
-  useEffect(() => console.log('Favorites: ', favorites), [favorites]); // TODO Delete this
 
   function isFavorite(restaurant) {
     const favoritesIndex = favorites.findIndex(el => el.placeId === restaurant.placeId);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -8,10 +8,12 @@ import { useRestaurants } from "../../services/restaurants/restaurant.context";
 import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
 import LocationSearch from "../features/LocationSearch/LocationSearch";
 import { RestaurantList, LoadingView } from './RestaurantsScreen.styles';
+import FavoritesScroller from "../features/favorites/FavoritesScroller";
 
 
 export default function RestaurantsScreen({ navigation }) {
   const { restaurants, isLoading, error } = useRestaurants();
+  const [showFavorites, setShowFavorites] = useState(false);
 
   function renderRestaurantCard({ item: restaurant }) {
     return (
@@ -21,10 +23,14 @@ export default function RestaurantsScreen({ navigation }) {
     );
   };
 
+  function toggleShowFavorites() {
+    setShowFavorites(!showFavorites);
+  }
+
 
   return (
     <ScreenSafeArea>
-      <LocationSearch />
+      <LocationSearch icon="heart" onIconPress={toggleShowFavorites} />
       {
         isLoading &&
         <LoadingView>
@@ -37,6 +43,10 @@ export default function RestaurantsScreen({ navigation }) {
           <Text variant="error">Error!</Text>
           <Text variant="caption">{error}</Text>
         </LoadingView>
+      }
+      {
+        showFavorites &&
+        <FavoritesScroller />
       }
       {
         !isLoading && !error &&

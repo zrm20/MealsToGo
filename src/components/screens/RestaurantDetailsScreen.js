@@ -1,19 +1,21 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import Button from "../UI/Button";
 import { Ionicons } from '@expo/vector-icons';
+import MapView, { Marker } from "react-native-maps";
 
+import Button from "../UI/Button";
 import ModalView from "../UI/ModalView";
 import { useRestaurantById } from "../../services/restaurants/restaurant.context";
 import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
-import OpenHoursList from '../features/restaurants/OpenHoursList';
 import Text from "../UI/Text";
 import openMap from "../../utils/openMap";
 import ScreenSafeArea from "../UI/ScreenSafeArea";
+import useStyles from "./RestaurantDetailsScreen.styles";
+import RestaurantMap from "../features/restaurants/RestaurantMap";
 
 export default function RestaurantDetailsScreen({ navigation, route }) {
   const { id } = route.params;
   const restaurant = useRestaurantById(id);
+  const styles = useStyles();
 
   if (!restaurant) {
     return (
@@ -31,9 +33,9 @@ export default function RestaurantDetailsScreen({ navigation, route }) {
     <ScreenSafeArea>
       <ModalView>
         <RestaurantInfoCard restaurant={restaurant} />
-        <View style={styles.listContainer}>
-          <OpenHoursList />
-        </View>
+
+        <RestaurantMap restaurant={restaurant} style={styles.map} />
+
         {
           restaurant.address &&
           <Button
@@ -49,9 +51,3 @@ export default function RestaurantDetailsScreen({ navigation, route }) {
     </ScreenSafeArea>
   );
 };
-
-const styles = StyleSheet.create({
-  listContainer: {
-    alignItems: 'center',
-  }
-})

@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useRestaurantById } from "../restaurants/restaurant.context";
 
 const FavoritesContext = createContext();
 
@@ -7,24 +8,23 @@ export function FavoritesProvider({ children }) {
 
   useEffect(() => console.log('Favorites: ', favorites), [favorites]); // TODO Delete this
 
+  function isFavorite(restaurant) {
+    const favoritesIndex = favorites.findIndex(el => el.placeId === restaurant.placeId);
+    return favoritesIndex !== -1;
+  };
+
   function toggleFavorite(restaurant) {
     if (!restaurant) {
       throw new Error('No restaurant recieved');
     };
 
-    const { placeId } = restaurant;
-
-    if (!placeId) {
-      throw new Error('No placeId found on restaurant');
-    };
-
-    if (favorites.includes(placeId)) {
+    if (isFavorite(restaurant)) {
       // already favorited, so remove from favorite
-      const filteredFavorites = favorites.filter(id => id !== placeId);
+      const filteredFavorites = favorites.filter(favorite => favorite.placeId !== restaurant.placeId);
       setFavorites(filteredFavorites);
     } else {
       // not yet favorited, so add to favorites
-      setFavorites([...favorites, placeId]);
+      setFavorites([...favorites, restaurant]);
     };
   };
 
@@ -32,9 +32,6 @@ export function FavoritesProvider({ children }) {
     setFavorites([]);
   };
 
-  function isFavorite(restaurant) {
-    return favorites.includes(restaurant.placeId);
-  };
 
   return (
     <FavoritesContext.Provider

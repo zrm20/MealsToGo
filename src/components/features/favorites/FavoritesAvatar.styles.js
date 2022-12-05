@@ -18,7 +18,6 @@ export default function useStyles(props) {
         marginBottom: parseInt(theme.space[1])
       },
       text: {
-        marginBottom: parseInt(theme.space[1])
       }
     }
   );

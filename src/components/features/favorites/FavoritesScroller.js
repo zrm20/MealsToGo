@@ -11,15 +11,25 @@ export default function FavoritesScroller({ navigate }) {
   const { favorites } = useFavorites()
   const styles = useStyles();
 
+  if (!favorites || favorites.length === 0) {
+    return (
+      <View
+        style={styles.container}
+      >
+        <Text style={styles.emptyText}>No favorites yet</Text>
+      </View>
+    );
+  };
 
   return (
-    <FlatList
-      style={styles.container}
-      contentContainerStyle={styles.content}
-      data={favorites}
-      keyExtractor={item => item.placeId}
-      horizontal
-      renderItem={data => (<FavoritesAvatar restaurant={data.item} />)}
-    />
+    <View style={styles.container}>
+      <FlatList
+        contentContainerStyle={styles.content}
+        data={favorites}
+        keyExtractor={item => item.placeId}
+        horizontal
+        renderItem={data => (<FavoritesAvatar restaurant={data.item} />)}
+      />
+    </View>
   );
 };

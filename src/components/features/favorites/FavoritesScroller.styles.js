@@ -7,12 +7,13 @@ export default function useStyles(props) {
   const styles = StyleSheet.create(
     {
       container: {
-        marginBottom: parseInt(theme.space[3]),
+        width: '100%',
+        marginBottom: parseInt(theme.space[2]),
         paddingHorizontal: parseInt(theme.space[3]),
       },
       content: {
-        width: '100%',
-        height: 150,
+      },
+      emptyText: {
       }
     }
   );

@@ -1,10 +1,8 @@
 import React from "react";
 import { Ionicons } from '@expo/vector-icons';
-import MapView, { Marker } from "react-native-maps";
 
 import Button from "../UI/Button";
 import ModalView from "../UI/ModalView";
-import { useRestaurantById } from "../../services/restaurants/restaurant.context";
 import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
 import Text from "../UI/Text";
 import openMap from "../../utils/openMap";

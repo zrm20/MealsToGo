@@ -25,12 +25,16 @@ export default function RestaurantsScreen({ navigation }) {
 
   function toggleShowFavorites() {
     setShowFavorites(!showFavorites);
-  }
+  };
 
 
   return (
     <ScreenSafeArea>
       <LocationSearch icon="heart" onIconPress={toggleShowFavorites} />
+      {
+        showFavorites &&
+        <FavoritesScroller />
+      }
       {
         isLoading &&
         <LoadingView>
@@ -43,10 +47,6 @@ export default function RestaurantsScreen({ navigation }) {
           <Text variant="error">Error!</Text>
           <Text variant="caption">{error}</Text>
         </LoadingView>
-      }
-      {
-        showFavorites &&
-        <FavoritesScroller />
       }
       {
         !isLoading && !error &&

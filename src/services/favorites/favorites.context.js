@@ -1,9 +1,29 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { getData, storeData } from "../../utils/asyncStorage";
 
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    async function loadInitialFavorites() {
+      const initalFavorites = await getData('@favorites');
+      if (initalFavorites) {
+        setFavorites(initalFavorites);
+      }
+    };
+
+    loadInitialFavorites();
+  }, [])
+
+  useEffect(() => {
+    async function saveFavorites() {
+      await storeData('@favorites', favorites)
+    };
+
+    saveFavorites();
+  }, [favorites]);
 
   function isFavorite(restaurant) {
     const favoritesIndex = favorites.findIndex(el => el.placeId === restaurant.placeId);

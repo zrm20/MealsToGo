@@ -10,6 +10,7 @@ import theme from './src/theme';
 import TabNavigator from "./src/navigation/TabNavigator";
 import { RestaurantsProvider } from "./src/services/restaurants/restaurant.context";
 import { LocationProvider } from "./src/services/location/location.context";
+import { FavoritesProvider } from "./src/services/favorites/favorites.context";
 
 export default function App() {
 
@@ -25,7 +26,9 @@ export default function App() {
         <NavigationContainer>
           <LocationProvider>
             <RestaurantsProvider>
-              <TabNavigator />
+              <FavoritesProvider>
+                <TabNavigator />
+              </FavoritesProvider>
             </RestaurantsProvider>
           </LocationProvider>
         </NavigationContainer>

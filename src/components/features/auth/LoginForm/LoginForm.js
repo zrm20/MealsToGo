@@ -6,7 +6,7 @@ import { SubmitButton, TextInput } from "../../../UI";
 
 export default function LoginForm() {
   const initialValues = {
-    username: "",
+    email: "",
     password: ""
   };
 
@@ -21,8 +21,8 @@ export default function LoginForm() {
     >
       <View>
         <TextInput
-          name="username"
-          label="Username"
+          name="email"
+          label="Email"
         />
         <TextInput
           name="password"

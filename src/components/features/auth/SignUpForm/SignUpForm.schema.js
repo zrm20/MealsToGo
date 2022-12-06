@@ -5,9 +5,9 @@ const signUpFormSchema = Yup.object(
     name: Yup.string()
       .required('Name is required')
       .min(2, "Minimum 2 characters"),
-    username: Yup.string()
-      .required('Username is required')
-      .min(2, "Minimum 2 characters"),
+    email: Yup.string()
+      .required('Email is required')
+      .email('Must be a valid email address'),
     password: Yup.string()
       .required('Password is required')
       .min(8, "Minimum 8 characters"),

@@ -14,7 +14,6 @@ import { FavoritesProvider } from "./src/services/favorites/favorites.context";
 import { AuthProvider } from "./src/services/auth/auth.context";
 import AppRoot from "./src/navigation/AppRoot";
 
-init();
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Oswald_400Regular, Lato_400Regular });

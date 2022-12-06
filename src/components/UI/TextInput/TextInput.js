@@ -10,7 +10,6 @@ export default function TextInput(props) {
   const styles = useStyles();
   const theme = useTheme();
   const [field, meta, utils] = useField(props);
-  console.log(meta.error);
 
   return (
     <View

@@ -4,17 +4,21 @@ import { Formik } from "formik";
 
 import { SubmitButton, TextInput } from "../../../UI";
 import signUpFormSchema from "./SignUpForm.schema";
+import { useAuth } from "../../../../services/auth/auth.context";
 
 export default function SignUpForm() {
+  const { signup } = useAuth();
+
   const initialValues = {
     name: "",
-    username: "",
+    email: "",
     password: "",
     confirmPassword: ""
   };
 
   function handleSubmit(values, actions) {
-    console.log('Submitting:', values);
+    const { email, password } = values;
+    signup(email, password);
   };
 
   return (
@@ -29,8 +33,8 @@ export default function SignUpForm() {
           label="Name"
         />
         <TextInput
-          name="username"
-          label="Username"
+          name="email"
+          label="Email"
           autoComplete="none" // android only
           textContentType="none" // iOS only
           autoCorrect={false}

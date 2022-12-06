@@ -21,7 +21,6 @@ export async function storeData(key, value) {
 export async function getData(key) {
   try {
     const jsonValue = await AsyncStorage.getItem(key);
-    console.log("VAL: ", jsonValue);
     if (jsonValue) {
       return JSON.parse(jsonValue);
     } else {

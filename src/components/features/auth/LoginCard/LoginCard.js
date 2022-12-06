@@ -4,6 +4,7 @@ import { Surface } from "react-native-paper";
 import useStyles from "./LoginCard.styles";
 import { Button } from "../../../UI";
 import LoginForm from "../LoginForm/LoginForm";
+import SignUpForm from "../SignUpForm/SignUpForm";
 
 export default function LoginCard(props) {
   const [isLoginMode, setIsLoginMode] = useState(true);
@@ -20,7 +21,11 @@ export default function LoginCard(props) {
 
   return (
     <Surface style={styles.container}>
-      <LoginForm />
+      {
+        isLoginMode ?
+          <LoginForm /> :
+          <SignUpForm />
+      }
       <Button onPress={handleToggleMode}>
         {toggleModeText}
       </Button>

@@ -27,6 +27,10 @@ export default function TextInput(props) {
         style={
           [styles.input, props.inputStyle]
         }
+        autoComplete={props.name} // android only
+        textContentType={props.name} // ios only
+        autoCapitalize="none"
+        autoCorrect={false}
         {...props}
       />
       {

@@ -9,7 +9,8 @@ export default function useStyles(props) {
       container: {
         justifyContent: 'center',
         alignItems: 'center',
-      }
+        flex: 1
+      },
     }
   );
   return styles;

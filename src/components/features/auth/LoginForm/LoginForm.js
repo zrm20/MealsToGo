@@ -2,7 +2,7 @@ import React from "react";
 import { View } from "react-native"
 import { Formik } from "formik";
 
-import { Button, SubmitButton, TextInput } from "../../../UI";
+import { SubmitButton, TextInput } from "../../../UI";
 
 export default function LoginForm() {
   const initialValues = {
@@ -23,19 +23,11 @@ export default function LoginForm() {
         <TextInput
           name="username"
           label="Username"
-          autoComplete="username" //android only
-          textContentType="username" // iOS only
-          autoCapitalize="none"
-          autoCorrect={false}
         />
         <TextInput
           name="password"
           label="Password"
-          autoComplete="password" //android only
-          textContentType="password" // iOS only
-          autoCapitalize="none"
           secureTextEntry
-          autoCorrect={false}
         />
 
         <SubmitButton>Login</SubmitButton>

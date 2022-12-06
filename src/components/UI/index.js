@@ -4,8 +4,8 @@ import ModalView from './ModalView';
 import SafeArea from './SafeArea'
 import ScreenSafeArea from './ScreenSafeArea';
 import Text from './Text';
-import TextInput from './TextInput';
-import SubmitButton from './SubmitButton';
+import TextInput from './TextInput/TextInput';
+import SubmitButton from './SubmitButton/SubmitButton';
 
 export {
   Button,

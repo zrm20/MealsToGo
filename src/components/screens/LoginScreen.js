@@ -1,8 +1,7 @@
 import React from "react";
-import LoginCard from "../features/auth/LoginCard";
 
+import { LoginCard } from "../features/auth";
 import ScreenSafeArea from "../UI/ScreenSafeArea";
-import Text from "../UI/Text";
 import useStyles from "./LoginScreen.styles";
 
 export default function LoginScreen() {

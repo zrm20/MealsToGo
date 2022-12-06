@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { TextInput as PaperInput } from "react-native-paper";
-import { Text } from "../"
+import { Text } from "../Text";
 import { useField } from "formik"
 import useStyles from "./TextInput.styles";
 import { useTheme } from "styled-components";

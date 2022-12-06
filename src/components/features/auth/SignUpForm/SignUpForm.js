@@ -3,6 +3,7 @@ import { View } from "react-native"
 import { Formik } from "formik";
 
 import { SubmitButton, TextInput } from "../../../UI";
+import signUpFormSchema from "./SignUpForm.schema";
 
 export default function SignUpForm() {
   const initialValues = {
@@ -19,6 +20,7 @@ export default function SignUpForm() {
   return (
     <Formik
       initialValues={initialValues}
+      validationSchema={signUpFormSchema}
       onSubmit={handleSubmit}
     >
       <View>
@@ -42,7 +44,7 @@ export default function SignUpForm() {
           autoCorrect={false}
         />
         <TextInput
-          name="confirmassword"
+          name="confirmPassword"
           label="Verify Password"
           autoComplete="none" //android only
           textContentType="newPassword" // iOS only

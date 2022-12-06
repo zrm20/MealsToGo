@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { TextInput as PaperInput } from "react-native-paper";
-import { Text } from "../Text";
+import Text from "../Text";
 import { useField } from "formik"
 import useStyles from "./TextInput.styles";
 import { useTheme } from "styled-components";
@@ -10,6 +10,7 @@ export default function TextInput(props) {
   const styles = useStyles();
   const theme = useTheme();
   const [field, meta, utils] = useField(props);
+  console.log(meta.error);
 
   return (
     <View

@@ -30,6 +30,9 @@ export default function useStyles(props) {
         height: 200,
         position: 'absolute',
         top: 20
+      },
+      fadeView: {
+        width: '100%'
       }
     }
   );

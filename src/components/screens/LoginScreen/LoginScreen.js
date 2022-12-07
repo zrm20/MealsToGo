@@ -8,6 +8,7 @@ import { Text } from "../../UI";
 import LoadingBackdrop from "../../UI/LoadingBackdrop/LoadingBackdrop";
 import ScreenSafeArea from "../../UI/ScreenSafeArea";
 import useStyles from "./LoginScreen.styles";
+import { FadeInView } from "../../animations";
 const homeBg = require('../../../../assets/home_bg.jpg')
 
 export default function LoginScreen() {
@@ -37,7 +38,12 @@ export default function LoginScreen() {
             >
               MealsToGo
             </Text>
-            <LoginCard />
+
+            <FadeInView style={styles.fadeView}>
+              <LoginCard />
+            </FadeInView>
+
+
           </KeyboardAvoidingView>
         </ScreenSafeArea>
       </ImageBackground>

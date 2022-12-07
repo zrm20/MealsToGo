@@ -1,8 +1,7 @@
 import React from 'react';
-import { useAuth } from '../../services/auth/auth.context';
-import AccountHeader from '../features/settings/AccountHeader';
-import SettingsList from '../features/settings/SettingsList';
-import { LoadingBackdrop, ScreenSafeArea } from '../UI';
+import { useAuth } from '../../../services/auth/auth.context';
+import { AccountHeader, SettingsList } from '../../settings'
+import { LoadingBackdrop, ScreenSafeArea } from '../../UI';
 import useStyles from './SettingsScreen.styles';
 
 export default function SettingsScreen() {

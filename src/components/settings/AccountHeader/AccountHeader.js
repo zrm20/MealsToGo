@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
+import { Avatar } from 'react-native-paper';
 
 import { Text } from '../../UI';
 import { useAuth } from "../../../services/auth/auth.context";
-import { Avatar } from 'react-native-paper';
 import useStyles from './AccoutHeader.styles';
 
 export default function AccountHeader() {

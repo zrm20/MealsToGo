@@ -1,5 +1,5 @@
 import React from "react";
-import LoginScreen from "../components/screens/LoginScreen";
+import { LoginScreen } from "../components/screens";
 import TabNavigator from "./TabNavigator";
 import { useAuth } from "../services/auth/auth.context";
 import { LocationProvider } from "../services/location/location.context";

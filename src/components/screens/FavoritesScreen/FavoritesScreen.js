@@ -4,7 +4,7 @@ import { TouchableOpacity, View } from "react-native";
 import { useFavorites } from "../../../services/favorites/favorites.context";
 import { Text } from "../../UI";
 import useStyles from "./FavoritesScreen.styles";
-import { RestaurantList } from "../RestaurantsScreen.styles";
+import { RestaurantList } from "../RestaurantsScreen/RestaurantsScreen.styles";
 import RestaurantInfoCard from "../../features/restaurants/RestaurantInfoCard";
 import { FAB } from "react-native-paper";
 

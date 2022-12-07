@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import RestaurantsStack from "./RestaurantsStack";
-import MapScreen from "../components/screens/MapScreen";
+import { MapScreen } from "../components/screens";
 import SettingsStack from "./SettingsStack";
 
 

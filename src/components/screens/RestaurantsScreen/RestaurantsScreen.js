@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 
-import LoadingSpinner from "../UI/LoadingSpinner";
-import Text from "../UI/Text";
-import ScreenSafeArea from "../UI/ScreenSafeArea";
-import { useRestaurants } from "../../services/restaurants/restaurant.context";
-import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
-import LocationSearch from "../features/LocationSearch/LocationSearch";
+import LoadingSpinner from "../../UI/LoadingSpinner";
+import Text from "../../UI/Text";
+import ScreenSafeArea from "../../UI/ScreenSafeArea";
+import { useRestaurants } from "../../../services/restaurants/restaurant.context";
+import RestaurantInfoCard from "../../features/restaurants/RestaurantInfoCard";
+import LocationSearch from "../../features/LocationSearch/LocationSearch";
 import { RestaurantList, LoadingView } from './RestaurantsScreen.styles';
-import FavoritesScroller from "../features/favorites/FavoritesScroller";
+import FavoritesScroller from "../../features/favorites/FavoritesScroller";
 
 
 export default function RestaurantsScreen({ navigation }) {

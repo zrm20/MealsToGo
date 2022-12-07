@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, SafeAreaView } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
-import { useLocation } from "../../services/location/location.context";
-import { useRestaurants } from "../../services/restaurants/restaurant.context";
-import LocationSearch from "../features/LocationSearch/LocationSearch";
-import MapCallout from "../features/map/MapCallout";
+import { useLocation } from "../../../services/location/location.context";
+import { useRestaurants } from "../../../services/restaurants/restaurant.context";
+import LocationSearch from "../../features/LocationSearch/LocationSearch";
+import MapCallout from "../../features/map/MapCallout";
 
-import SafeArea from "../UI/SafeArea";
+import SafeArea from "../../UI/SafeArea";
 
 export default function MapScreen({ navigation }) {
   const { location } = useLocation();

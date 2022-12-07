@@ -9,7 +9,7 @@ import RestaurantInfoCard from "../../features/restaurants/RestaurantInfoCard";
 import LocationSearch from "../../features/LocationSearch/LocationSearch";
 import { RestaurantList, LoadingView } from './RestaurantsScreen.styles';
 import FavoritesScroller from "../../features/favorites/FavoritesScroller";
-
+import { FadeInView } from "../../animations";
 
 export default function RestaurantsScreen({ navigation }) {
   const { restaurants, isLoading, error } = useRestaurants();
@@ -50,11 +50,13 @@ export default function RestaurantsScreen({ navigation }) {
       }
       {
         !isLoading && !error &&
-        <RestaurantList
-          data={restaurants}
-          renderItem={renderRestaurantCard}
-          keyExtractor={restaurant => restaurant.placeId}
-        />
+        <FadeInView duration={1000}>
+          <RestaurantList
+            data={restaurants}
+            renderItem={renderRestaurantCard}
+            keyExtractor={restaurant => restaurant.placeId}
+          />
+        </FadeInView>
       }
     </ScreenSafeArea>
   );

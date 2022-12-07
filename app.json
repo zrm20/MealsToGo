@@ -18,12 +18,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zachrmccoy.MealsToGo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f3575905-93a3-4d0a-8ac4-73060ec43364"
       }
     }
   }

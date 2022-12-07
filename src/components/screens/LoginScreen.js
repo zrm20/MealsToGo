@@ -1,7 +1,8 @@
 import React from "react";
-import { KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ImageBackground } from "react-native";
-import { useAuth } from "../../services/auth/auth.context";
+import { KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ImageBackground, View } from "react-native";
+import LottieView from "lottie-react-native";
 
+import { useAuth } from "../../services/auth/auth.context";
 import { LoginCard } from "../features/auth";
 import { Text } from "../UI";
 import LoadingBackdrop from "../UI/LoadingBackdrop/LoadingBackdrop";
@@ -22,6 +23,15 @@ export default function LoginScreen() {
         }
         <ScreenSafeArea style={styles.container}>
           <KeyboardAvoidingView behavior='padding' style={styles.keyboardView}>
+            <View style={styles.animationContainer}>
+              <LottieView
+                key="animation"
+                autoPlay
+                loop
+                resizeMode="cover"
+                source={require("../../../assets/watermelon.json")}
+              />
+            </View>
             <Text
               style={styles.title}
             >

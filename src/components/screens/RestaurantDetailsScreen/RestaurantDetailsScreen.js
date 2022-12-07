@@ -1,14 +1,14 @@
 import React from "react";
 import { Ionicons } from '@expo/vector-icons';
 
-import Button from "../UI/Button";
-import ModalView from "../UI/ModalView";
-import RestaurantInfoCard from "../features/restaurants/RestaurantInfoCard";
-import Text from "../UI/Text";
-import openMap from "../../utils/openMap";
-import ScreenSafeArea from "../UI/ScreenSafeArea";
+import Button from "../../UI/Button";
+import ModalView from "../../UI/ModalView";
+import RestaurantInfoCard from "../../features/restaurants/RestaurantInfoCard";
+import Text from "../../UI/Text";
+import openMap from "../../../utils/openMap";
+import ScreenSafeArea from "../../UI/ScreenSafeArea";
 import useStyles from "./RestaurantDetailsScreen.styles";
-import RestaurantMap from "../features/restaurants/RestaurantMap";
+import RestaurantMap from "../../features/restaurants/RestaurantMap";
 
 export default function RestaurantDetailsScreen({ navigation, route }) {
   const { restaurant } = route.params;

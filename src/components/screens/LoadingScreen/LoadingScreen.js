@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { LoadingSpinner, ScreenSafeArea } from "../UI";
+import { LoadingSpinner, ScreenSafeArea } from "../../UI";
 
 export default function LoadingScreen(props) {
   return (

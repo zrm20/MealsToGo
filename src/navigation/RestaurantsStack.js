@@ -13,7 +13,7 @@ export default function RestaurantsStack() {
         headerShown: false
       }}
     >
-      <Stack.Screen name="Restaurants" component={RestaurantsScreen} />
+      <Stack.Screen name="RestaurantsHome" component={RestaurantsScreen} />
       <Stack.Group
         screenOptions={{
           presentation: "modal"

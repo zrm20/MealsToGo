@@ -3,13 +3,13 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 import RestaurantsStack from "./RestaurantsStack";
 import MapScreen from "../components/screens/MapScreen";
-import SettingsScreen from "../components/screens/SettingsScreen";
+import SettingsStack from "./SettingsStack";
 
 
 const Tabs = createBottomTabNavigator();
 
 const TAB_ICON = {
-  RestaurantsStack: "restaurant-outline",
+  Restaurants: "restaurant-outline",
   Map: "map-outline",
   Settings: "settings-outline"
 };
@@ -24,9 +24,9 @@ export default function TabNavigator() {
     <Tabs.Navigator
       screenOptions={screenOptions}
     >
-      <Tabs.Screen name="RestaurantsStack" component={RestaurantsStack} />
+      <Tabs.Screen name="Restaurants" component={RestaurantsStack} />
       <Tabs.Screen name="Map" component={MapScreen} />
-      <Tabs.Screen name="Settings" component={SettingsScreen} />
+      <Tabs.Screen name="Settings" component={SettingsStack} />
     </Tabs.Navigator>
   );
 };

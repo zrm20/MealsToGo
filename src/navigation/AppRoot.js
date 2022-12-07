@@ -10,5 +10,7 @@ export default function AppRoot() {
     return <LoginScreen />
   };
 
-  return <TabNavigator />
+  return (
+    <TabNavigator />
+  )
 };

@@ -1,6 +1,12 @@
 import { createContext, useState, useContext } from "react";
-import { Alert } from "react-native";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "firebase/auth";
+
 
 const AuthContext = createContext();
 
@@ -10,6 +16,10 @@ export function AuthProvider({ children }) {
   const [error, setError] = useState(null);
 
   const authInstance = getAuth();
+
+  onAuthStateChanged(authInstance, (userResult) => {
+    setUser(userResult);
+  })
 
   async function signup(email, password) {
     setIsLoading(true);

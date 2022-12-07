@@ -8,9 +8,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { init } from "./src/config/firebase";
 
 import theme from './src/theme';
-import { RestaurantsProvider } from "./src/services/restaurants/restaurant.context";
-import { LocationProvider } from "./src/services/location/location.context";
-import { FavoritesProvider } from "./src/services/favorites/favorites.context";
 import { AuthProvider } from "./src/services/auth/auth.context";
 import AppRoot from "./src/navigation/AppRoot";
 
@@ -27,13 +24,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <NavigationContainer>
           <AuthProvider>
-            <LocationProvider>
-              <RestaurantsProvider>
-                <FavoritesProvider>
-                  <AppRoot />
-                </FavoritesProvider>
-              </RestaurantsProvider>
-            </LocationProvider>
+            <AppRoot />
           </AuthProvider>
         </NavigationContainer>
       </ThemeProvider>

@@ -1,29 +1,41 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getData, storeData } from "../../utils/asyncStorage";
+import { useAuth } from "../auth/auth.context";
 
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
+  const { user } = useAuth();
   const [favorites, setFavorites] = useState([]);
+  const [updates, setUpdates] = useState(0);
 
   useEffect(() => {
-    async function loadInitialFavorites() {
-      const initalFavorites = await getData('@favorites');
+    async function loadInitialFavorites(uid) {
+      const initalFavorites = await getData(`@favorites-${uid}`);
       if (initalFavorites) {
         setFavorites(initalFavorites);
       }
     };
 
-    loadInitialFavorites();
-  }, [])
+    if (user) {
+      loadInitialFavorites(user.uid);
+    };
+  }, []);
 
   useEffect(() => {
-    async function saveFavorites() {
-      await storeData('@favorites', favorites)
+    async function saveFavorites(uid) {
+      if (!uid) {
+        throw new Error('No user id provided');
+      }
+      await storeData(`@favorites-${uid}`, favorites)
     };
 
-    saveFavorites();
-  }, [favorites]);
+    if (updates > 0) {
+      saveFavorites(user.uid);
+    };
+
+  }, [updates]);
+
 
   function isFavorite(restaurant) {
     const favoritesIndex = favorites.findIndex(el => el.placeId === restaurant.placeId);
@@ -42,6 +54,8 @@ export function FavoritesProvider({ children }) {
     } else {
       // not yet favorited, so add to favorites
       setFavorites([...favorites, restaurant]);
+      // increment updates to trigger save to local
+      setUpdates(updates + 1);
     };
   };
 

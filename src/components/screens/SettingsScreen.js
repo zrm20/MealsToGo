@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import { useAuth } from '../../services/auth/auth.context';
 import { Button, LoadingSpinner, ScreenSafeArea } from '../UI';
 import useStyles from './SettingsScreen.styles';

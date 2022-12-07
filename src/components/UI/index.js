@@ -6,6 +6,7 @@ import ScreenSafeArea from './ScreenSafeArea';
 import Text from './Text';
 import TextInput from './TextInput/TextInput';
 import SubmitButton from './SubmitButton/SubmitButton';
+import LoadingBackdrop from './LoadingBackdrop/LoadingBackdrop';
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   ScreenSafeArea,
   Text,
   TextInput,
-  SubmitButton
+  SubmitButton,
+  LoadingBackdrop
 };

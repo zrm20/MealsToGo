@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
     try {
       userCredential = await signInWithEmailAndPassword(authInstance, email, password);
     } catch (err) {
-      Alert.alert('Failed to login');
+      Alert.alert(err.toString());
       setError(err);
       setIsLoading(false);
     };

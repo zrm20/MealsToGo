@@ -3,15 +3,19 @@ import { View } from "react-native"
 import { Formik } from "formik";
 
 import { SubmitButton, TextInput } from "../../../UI";
+import { useAuth } from '../../../../services/auth/auth.context';
 
 export default function LoginForm() {
+  const { login } = useAuth();
+
   const initialValues = {
     email: "",
     password: ""
   };
 
   function handleSubmit(values, actions) {
-    console.log("SUBMITTING:", values); // TODO change this
+    const { email, password } = values;
+    login(email, password);
   };
 
   return (

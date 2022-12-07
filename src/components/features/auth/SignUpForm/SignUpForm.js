@@ -5,12 +5,12 @@ import { Formik } from "formik";
 import { SubmitButton, TextInput } from "../../../UI";
 import signUpFormSchema from "./SignUpForm.schema";
 import { useAuth } from "../../../../services/auth/auth.context";
+import { Text } from '../../../UI';
 
 export default function SignUpForm() {
-  const { signup } = useAuth();
+  const { signup, error } = useAuth();
 
   const initialValues = {
-    name: "",
     email: "",
     password: "",
     confirmPassword: ""
@@ -28,10 +28,6 @@ export default function SignUpForm() {
       onSubmit={handleSubmit}
     >
       <View>
-        <TextInput
-          name="name"
-          label="Name"
-        />
         <TextInput
           name="email"
           label="Email"
@@ -55,6 +51,12 @@ export default function SignUpForm() {
           secureTextEntry
           autoCorrect={false}
         />
+
+        {
+          error &&
+          <Text variant='error'>{error}</Text>
+        }
+
         <SubmitButton>Sign Up</SubmitButton>
       </View>
     </Formik>

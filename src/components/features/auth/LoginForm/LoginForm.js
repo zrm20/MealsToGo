@@ -2,11 +2,11 @@ import React from "react";
 import { View } from "react-native"
 import { Formik } from "formik";
 
-import { SubmitButton, TextInput } from "../../../UI";
+import { SubmitButton, Text, TextInput } from "../../../UI";
 import { useAuth } from '../../../../services/auth/auth.context';
 
 export default function LoginForm() {
-  const { login } = useAuth();
+  const { login, error } = useAuth();
 
   const initialValues = {
     email: "",
@@ -33,6 +33,11 @@ export default function LoginForm() {
           label="Password"
           secureTextEntry
         />
+
+        {
+          error &&
+          <Text variant='error'>{error}</Text>
+        }
 
         <SubmitButton>Login</SubmitButton>
       </View>

@@ -19,8 +19,8 @@ export function AuthProvider({ children }) {
     try {
       userCredential = await createUserWithEmailAndPassword(authInstance, email, password);
     } catch (err) {
-      Alert.alert('Failed to create user');
-      setError(err);
+      setError(err.message);
+      console.error(err);
       setIsLoading(false);
     };
 
@@ -38,8 +38,8 @@ export function AuthProvider({ children }) {
     try {
       userCredential = await signInWithEmailAndPassword(authInstance, email, password);
     } catch (err) {
-      Alert.alert(err.toString());
-      setError(err);
+      setError(err.message);
+      console.error(err);
       setIsLoading(false);
     };
 
@@ -58,8 +58,8 @@ export function AuthProvider({ children }) {
       setUser(null);
       setIsLoading(false);
     } catch (err) {
-      Alert.alert('Failed to log out');
-      setError(err);
+      setError(err.message);
+      console.error(err);
       setIsLoading(false);
     }
   };

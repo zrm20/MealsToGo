@@ -9,7 +9,7 @@ export function locationRequest(keyword = "") {
     const result = locations[keyword.toLowerCase()];
 
     if (!result) {
-      return setTimeout(() => reject('No location found'), 1000);
+      return setTimeout(() => reject('No location found. This is only a mock API call for demo purposes. Try "Toronto" or "San Francisco"'), 1000);
     };
 
     return setTimeout(() => resolve(result), 1000);
